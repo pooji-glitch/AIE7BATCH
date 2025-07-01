@@ -4,7 +4,6 @@ from typing import List, Tuple, Callable
 from aimakerspace.openai_utils.embedding import EmbeddingModel
 import asyncio
 import os
-os.environ["OPENAI_API_KEY"] = "***REMOVED***proj-llnQfzLgT3LYEJe7kzyzvutpZmiosO0grV9RZRdRDynvg8MpGnwsLmL-g-ztHrUwXHaMPMpJn8T3BlbkFJUt3PQee_qkcvZkN4lgX6o8YGaR7r9wmFgIxcKse3lmnI2VeHWppUfj1SYSbahszBLYZ1rZ4fcA"
 
 
 def cosine_similarity(vector_a: np.array, vector_b: np.array) -> float:
