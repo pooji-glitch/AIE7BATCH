@@ -3,6 +3,8 @@ from collections import defaultdict
 from typing import List, Tuple, Callable
 from aimakerspace.openai_utils.embedding import EmbeddingModel
 import asyncio
+import os
+os.environ["OPENAI_API_KEY"] = "***REMOVED***proj-llnQfzLgT3LYEJe7kzyzvutpZmiosO0grV9RZRdRDynvg8MpGnwsLmL-g-ztHrUwXHaMPMpJn8T3BlbkFJUt3PQee_qkcvZkN4lgX6o8YGaR7r9wmFgIxcKse3lmnI2VeHWppUfj1SYSbahszBLYZ1rZ4fcA"
 
 
 def cosine_similarity(vector_a: np.array, vector_b: np.array) -> float:
@@ -18,20 +20,15 @@ class VectorDatabase:
         self.vectors = defaultdict(np.array)
         self.embedding_model = embedding_model or EmbeddingModel()
 
-    def insert(self, key: str, vector: np.array) -> None:
-        self.vectors[key] = vector
+    def insert(self, key: str, vector: np.array, metadata: dict = None) -> None:
+     self.vectors[key] = (vector, metadata or {})
 
-    def search(
-        self,
-        query_vector: np.array,
-        k: int,
-        distance_measure: Callable = cosine_similarity,
-    ) -> List[Tuple[str, float]]:
-        scores = [
-            (key, distance_measure(query_vector, vector))
-            for key, vector in self.vectors.items()
-        ]
-        return sorted(scores, key=lambda x: x[1], reverse=True)[:k]
+    def search(self, query_vector: np.array, k: int, distance_measure: Callable = cosine_similarity) -> List[Tuple[str, float]]:
+     scores = [
+        (key, distance_measure(query_vector, value[0]))  # value = (embedding, metadata)
+        for key, value in self.vectors.items()
+    ]
+     return sorted(scores, key=lambda x: x[1], reverse=True)[:k]
 
     def search_by_text(
         self,
@@ -44,14 +41,16 @@ class VectorDatabase:
         results = self.search(query_vector, k, distance_measure)
         return [result[0] for result in results] if return_as_text else results
 
-    def retrieve_from_key(self, key: str) -> np.array:
-        return self.vectors.get(key, None)
+    def retrieve_from_key(self, key: str) -> Tuple[np.array, dict]:
+     return self.vectors.get(key, (None, {}))
 
-    async def abuild_from_list(self, list_of_text: List[str]) -> "VectorDatabase":
+    async def abuild_from_list(self, list_of_text: List[str], metadata_list: List[dict] = None) -> "VectorDatabase":
         embeddings = await self.embedding_model.async_get_embeddings(list_of_text)
-        for text, embedding in zip(list_of_text, embeddings):
-            self.insert(text, np.array(embedding))
+        for idx, (text, embedding) in enumerate(zip(list_of_text, embeddings)):
+            metadata = metadata_list[idx] if metadata_list else {}
+            self.insert(text, np.array(embedding), metadata)
         return self
+
 
 
 if __name__ == "__main__":
@@ -79,3 +78,5 @@ if __name__ == "__main__":
         "I think fruit is awesome!", k=k, return_as_text=True
     )
     print(f"Closest {k} text(s):", relevant_texts)
+
+    print(os.environ.get("OPENAI_API_KEY"))
