@@ -8,7 +8,11 @@
 
 | 🤓 Pre-work | 📰 Session Sheet | ⏺️ Recording     | 🖼️ Slides        | 👨‍💻 Repo         | 📝 Homework      | 📁 Feedback       |
 |:-----------------|:-----------------|:-----------------|:-----------------|:-----------------|:-----------------|:-----------------|
+<<<<<<< HEAD
 | [Session 8: Pre-Work](https://www.notion.so/Session-8-RAG-Evaluation-and-Assessment-1c8cd547af3d81d08f7cf5521d0253bb?pvs=4#1c8cd547af3d816583d6c23183b6f87f) | [Session 8: RAG Evaluation and Assessment](https://www.notion.so/Session-8-RAG-Evaluation-and-Assessment-1c8cd547af3d81d08f7cf5521d0253bb) | [Recording](https://us02web.zoom.us/rec/share/zlh_0cIuDgAtzeWsbQnScp-pjpdmVXvAAZv-Zi6sznb3IqCZTvcCQbfD-bXGUerr.fJP0Ywlyxlp0XPpe ) (*$EC4fQ1) | [Session 8 Slides](https://www.canva.com/design/DAGjadKGqcw/0Gff9K2EwbOb3lX14un3uw/edit?utm_content=DAGjadKGqcw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) | You are here! | [Session 8: RAG Evaluation and Assessment](https://forms.gle/ujAQLqx2ZHMWTUH79) | [AIE6 Feedback 4/24](https://forms.gle/wA7p89e6svCgjtr58) |
+=======
+| [Session 8: Pre-Work](https://www.notion.so/Session-8-RAG-Evaluation-and-Assessment-21dcd547af3d80b39f09ffa61d4bab89?source=copy_link#232cd547af3d80098545d9f576bc622f)| [Session 8: RAG Evaluation and Assessment](https://www.notion.so/Session-8-RAG-Evaluation-and-Assessment-21dcd547af3d80b39f09ffa61d4bab89) | [Recording!](https://us02web.zoom.us/rec/share/sNualc0Z-OE6TOWZvjiJoX71PVAMtMxiEcLfgFQhIpvbe634xYBwfwu-BEf-1tsO.7od_74gguSzFMCcL) (pDcv@!2j) | [Session 8 Slides](https://www.canva.com/design/DAGtcxIQkZs/giWGUaQrsRf5Aq2IoQV46Q/edit?utm_content=DAGtcxIQkZs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) | You are here! | [Session 8: RAG Evaluation and Assessment](https://forms.gle/RPWURmmrwg85ngdT6) | [AIE7 Feedback 7/17](https://forms.gle/oG2iR4Bkf9YpvA7R9) |
+>>>>>>> d22ba7c97cb50bab8acf2f22db89bc44344dd185
 
 In today's assignment, we'll be creating Synthetic Data, and using it to benchmark (and improve) a LCEL RAG Chain.
 
