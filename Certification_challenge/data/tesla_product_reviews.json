@@ -1,0 +1,168 @@
+{
+  "tesla_products": [
+    {
+      "product_id": "TSLA_MODEL_S",
+      "product_name": "Tesla Model S",
+      "category": "Luxury Sedan",
+      "release_year": 2012,
+      "current_price": 89990,
+      "reviews": [
+        {
+          "review_id": "REV001",
+          "source": "Consumer Reports",
+          "rating": 4.8,
+          "reviewer": "Automotive Expert",
+          "review_date": "2023-12-15",
+          "pros": ["Excellent range", "Superior performance", "Advanced technology", "Premium interior"],
+          "cons": ["High price point", "Limited service network"],
+          "summary": "The Model S continues to set the standard for luxury electric vehicles with its impressive range and performance.",
+          "investment_rating": "Strong Buy"
+        },
+        {
+          "review_id": "REV002",
+          "source": "Car and Driver",
+          "rating": 4.7,
+          "reviewer": "Performance Analyst",
+          "review_date": "2023-11-20",
+          "pros": ["Incredible acceleration", "Smooth ride", "Cutting-edge features"],
+          "cons": ["Complex interface", "Expensive options"],
+          "summary": "Tesla's flagship sedan delivers exceptional performance and technology that competitors struggle to match.",
+          "investment_rating": "Buy"
+        }
+      ],
+      "market_position": "Luxury segment leader",
+      "competitive_advantage": "Range and performance"
+    },
+    {
+      "product_id": "TSLA_MODEL_3",
+      "product_name": "Tesla Model 3",
+      "category": "Compact Sedan",
+      "release_year": 2017,
+      "current_price": 38990,
+      "reviews": [
+        {
+          "review_id": "REV003",
+          "source": "Motor Trend",
+          "rating": 4.6,
+          "reviewer": "EV Specialist",
+          "review_date": "2023-12-10",
+          "pros": ["Affordable price", "Good range", "Safety features", "Resale value"],
+          "cons": ["Basic interior", "Ride quality"],
+          "summary": "The Model 3 makes electric vehicles accessible to mainstream buyers without compromising on technology.",
+          "investment_rating": "Strong Buy"
+        },
+        {
+          "review_id": "REV004",
+          "source": "Edmunds",
+          "rating": 4.5,
+          "reviewer": "Consumer Analyst",
+          "review_date": "2023-10-25",
+          "pros": ["Value for money", "Charging network", "Software updates"],
+          "cons": ["Build quality issues", "Service delays"],
+          "summary": "Despite some quality concerns, the Model 3 offers the best overall EV experience in its price range.",
+          "investment_rating": "Buy"
+        }
+      ],
+      "market_position": "Best-selling EV globally",
+      "competitive_advantage": "Price-performance ratio"
+    },
+    {
+      "product_id": "TSLA_MODEL_Y",
+      "product_name": "Tesla Model Y",
+      "category": "Compact SUV",
+      "release_year": 2020,
+      "current_price": 43990,
+      "reviews": [
+        {
+          "review_id": "REV005",
+          "source": "AutoWeek",
+          "rating": 4.7,
+          "reviewer": "SUV Expert",
+          "review_date": "2023-12-05",
+          "pros": ["Versatile design", "Excellent range", "Family-friendly", "Cargo space"],
+          "cons": ["Firm ride", "Noise levels"],
+          "summary": "The Model Y successfully combines SUV practicality with Tesla's electric performance and technology.",
+          "investment_rating": "Strong Buy"
+        },
+        {
+          "review_id": "REV006",
+          "source": "Kelley Blue Book",
+          "rating": 4.6,
+          "reviewer": "Market Analyst",
+          "review_date": "2023-11-15",
+          "pros": ["High resale value", "Safety ratings", "Charging convenience"],
+          "cons": ["Premium pricing", "Limited color options"],
+          "summary": "Tesla's crossover SUV dominates the electric SUV market with superior technology and range.",
+          "investment_rating": "Buy"
+        }
+      ],
+      "market_position": "Best-selling SUV globally",
+      "competitive_advantage": "Range and utility"
+    },
+    {
+      "product_id": "TSLA_CYBERTRUCK",
+      "product_name": "Tesla Cybertruck",
+      "category": "Pickup Truck",
+      "release_year": 2023,
+      "current_price": 60990,
+      "reviews": [
+        {
+          "review_id": "REV007",
+          "source": "Truck Trend",
+          "rating": 4.3,
+          "reviewer": "Truck Specialist",
+          "review_date": "2023-12-20",
+          "pros": ["Revolutionary design", "Impressive performance", "Advanced features", "Durability"],
+          "cons": ["Controversial styling", "Limited availability", "High price"],
+          "summary": "The Cybertruck represents a bold departure from traditional pickup design with impressive capabilities.",
+          "investment_rating": "Hold"
+        },
+        {
+          "review_id": "REV008",
+          "source": "Automotive News",
+          "rating": 4.2,
+          "reviewer": "Industry Analyst",
+          "review_date": "2023-12-18",
+          "pros": ["Innovative technology", "Strong performance", "Unique features"],
+          "cons": ["Production delays", "Market uncertainty", "Service complexity"],
+          "summary": "While innovative, the Cybertruck faces challenges in the competitive pickup market.",
+          "investment_rating": "Neutral"
+        }
+      ],
+      "market_position": "New entrant in pickup segment",
+      "competitive_advantage": "Innovation and performance"
+    },
+    {
+      "product_id": "TSLA_POWERWALL",
+      "product_name": "Tesla Powerwall",
+      "category": "Energy Storage",
+      "release_year": 2015,
+      "current_price": 8500,
+      "reviews": [
+        {
+          "review_id": "REV009",
+          "source": "Energy Review",
+          "rating": 4.8,
+          "reviewer": "Energy Analyst",
+          "review_date": "2023-11-30",
+          "pros": ["Reliable performance", "Easy installation", "Good warranty", "Smart features"],
+          "cons": ["High initial cost", "Limited availability"],
+          "summary": "Tesla's Powerwall sets the standard for residential energy storage with excellent reliability and features.",
+          "investment_rating": "Strong Buy"
+        }
+      ],
+      "market_position": "Leading residential energy storage",
+      "competitive_advantage": "Technology and reliability"
+    }
+  ],
+  "market_analysis": {
+    "total_products": 5,
+    "average_rating": 4.6,
+    "price_range": {
+      "min": 8500,
+      "max": 89990
+    },
+    "market_segments": ["Automotive", "Energy Storage"],
+    "competitive_position": "Market leader in EV and energy storage"
+  }
+} 
