@@ -1,0 +1,38 @@
+# Core dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+
+# LangChain and AI
+langchain==0.1.0
+langchain-openai==0.0.5
+langchain-community==0.0.10
+langchain-core==0.1.10
+langgraph==0.0.20
+
+# Data processing
+pandas==2.1.4
+numpy==1.24.3
+scikit-learn==1.3.2
+
+# Vector stores and retrieval
+faiss-cpu==1.7.4
+chromadb==0.4.18
+rank-bm25==0.2.2
+
+# Evaluation
+ragas==0.1.0
+datasets==2.15.0
+
+# OpenAI and API keys
+openai==1.3.7
+
+# Optional: Tavily for web search
+tavily-python==0.3.1
+
+# Optional: Cohere for reranking
+cohere==4.37
+
+# Development and utilities
+python-multipart==0.0.6
+aiofiles==23.2.1 
