@@ -1,0 +1,49 @@
+[
+  {
+    "title": "ObjFiller-3D: Consistent Multi-view 3D Inpainting via Video Diffusion Models",
+    "authors": [
+      "Haitang Feng",
+      "Jie Liu",
+      "Jie Tang",
+      "Gangshan Wu",
+      "Beiqi Chen",
+      "Jianhuang Lai",
+      "Guangcong Wang"
+    ],
+    "summary": "3D inpainting often relies on multi-view 2D image inpainting, where the\ninherent inconsistencies across different inpainted views can result in blurred\ntextures, spatial discontinuities, and distracting visual artifacts. These\ninconsistencies pose significant challenges when striving for accurate and\nrealistic 3D object completion, particularly in applications that demand high\nfidelity and structural coherence. To overcome these limitations, we propose\nObjFiller-3D, a novel method designed for the completion and editing of\nhigh-quality and consistent 3D objects. Instead of employing a conventional 2D\nimage inpainting model, our approach leverages a curated selection of\nstate-of-the-art video editing model to fill in the masked regions of 3D\nobjects. We analyze the representation gap between 3D and videos, and propose\nan adaptation of a video inpainting model for 3D scene inpainting. In addition,\nwe introduce a reference-based 3D inpainting method to further enhance the\nquality of reconstruction. Experiments across diverse datasets show that\ncompared to previous methods, ObjFiller-3D produces more faithful and\nfine-grained reconstructions (PSNR of 26.6 vs. NeRFiller (15.9) and LPIPS of\n0.19 vs. Instant3dit (0.25)). Moreover, it demonstrates strong potential for\npractical deployment in real-world 3D editing applications. Project page:\nhttps://objfiller3d.github.io/ Code:\nhttps://github.com/objfiller3d/ObjFiller-3D .",
+    "published_date": "2025-08-25",
+    "arxiv_id": "http://arxiv.org/abs/2508.18271v1",
+    "pdf_filename": "ObjFiller-3D_Consistent_Multi-view_3D_Inpainting_v.pdf"
+  },
+  {
+    "title": "FlowVLA: Thinking in Motion with a Visual Chain of Thought",
+    "authors": [
+      "Zhide Zhong",
+      "Haodong Yan",
+      "Junfeng Li",
+      "Xiangchen Liu",
+      "Xin Gong",
+      "Wenxuan Song",
+      "Jiayi Chen",
+      "Haoang Li"
+    ],
+    "summary": "Many Vision-Language-Action (VLA) models rely on an internal world model\ntrained via next-frame prediction. This approach, however, struggles with\nphysical reasoning as it entangles static appearance with dynamic motion, often\nresulting in implausible visual forecasts and inefficient policy learning. To\naddress these limitations, we introduce the Visual Chain of Thought (Visual\nCoT): a pre-training framework that encourages a model to reason about how a\nscene evolves before predicting what it will look like. We instantiate this\nprinciple in FlowVLA, which predicts a future frame ($v_{t+1}$) only after\ngenerating an intermediate optical flow representation ($f_t$) that encodes\nmotion dynamics. This ``$v_t \\rightarrow f_t \\rightarrow v_{t+1}$'' reasoning\nprocess is implemented within a single autoregressive Transformer, guiding the\nmodel to learn disentangled dynamics. As a result, FlowVLA produces coherent\nvisual predictions and facilitates more efficient policy learning. Experiments\non challenging robotics manipulation benchmarks demonstrate state-of-the-art\nperformance with substantially improved sample efficiency, pointing toward a\nmore principled foundation for world modeling. Project page:\nhttps://irpn-lab.github.io/FlowVLA/",
+    "published_date": "2025-08-25",
+    "arxiv_id": "http://arxiv.org/abs/2508.18269v1",
+    "pdf_filename": "FlowVLA_Thinking_in_Motion_with_a_Visual_Chain_of_.pdf"
+  },
+  {
+    "title": "SafeBimanual: Diffusion-based Trajectory Optimization for Safe Bimanual Manipulation",
+    "authors": [
+      "Haoyuan Deng",
+      "Wenkai Guo",
+      "Qianzhun Wang",
+      "Zhenyu Wu",
+      "Ziwei Wang"
+    ],
+    "summary": "Bimanual manipulation has been widely applied in household services and\nmanufacturing, which enables the complex task completion with coordination\nrequirements. Recent diffusion-based policy learning approaches have achieved\npromising performance in modeling action distributions for bimanual\nmanipulation. However, they ignored the physical safety constraints of bimanual\nmanipulation, which leads to the dangerous behaviors with damage to robots and\nobjects. To this end, we propose a test-time trajectory optimization framework\nnamed SafeBimanual for any pre-trained diffusion-based bimanual manipulation\npolicies, which imposes the safety constraints on bimanual actions to avoid\ndangerous robot behaviors with improved success rate. Specifically, we design\ndiverse cost functions for safety constraints in different dual-arm cooperation\npatterns including avoidance of tearing objects and collision between arms and\nobjects, which optimizes the manipulator trajectories with guided sampling of\ndiffusion denoising process. Moreover, we employ a vision-language model (VLM)\nto schedule the cost functions by specifying keypoints and corresponding\npairwise relationship, so that the optimal safety constraint is dynamically\ngenerated in the entire bimanual manipulation process. SafeBimanual\ndemonstrates superiority on 8 simulated tasks in RoboTwin with a 13.7% increase\nin success rate and a 18.8% reduction in unsafe interactions over\nstate-of-the-art diffusion-based methods. Extensive experiments on 4 real-world\ntasks further verify its practical value by improving the success rate by\n32.5%.",
+    "published_date": "2025-08-25",
+    "arxiv_id": "http://arxiv.org/abs/2508.18268v1",
+    "pdf_filename": "SafeBimanual_Diffusion-based_Trajectory_Optimizati.pdf"
+  }
+]

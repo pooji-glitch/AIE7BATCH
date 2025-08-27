@@ -1,0 +1,14 @@
+{
+  "title": "SafeBimanual: Diffusion-based Trajectory Optimization for Safe Bimanual Manipulation",
+  "authors": [
+    "Haoyuan Deng",
+    "Wenkai Guo",
+    "Qianzhun Wang",
+    "Zhenyu Wu",
+    "Ziwei Wang"
+  ],
+  "summary": "Bimanual manipulation has been widely applied in household services and\nmanufacturing, which enables the complex task completion with coordination\nrequirements. Recent diffusion-based policy learning approaches have achieved\npromising performance in modeling action distributions for bimanual\nmanipulation. However, they ignored the physical safety constraints of bimanual\nmanipulation, which leads to the dangerous behaviors with damage to robots and\nobjects. To this end, we propose a test-time trajectory optimization framework\nnamed SafeBimanual for any pre-trained diffusion-based bimanual manipulation\npolicies, which imposes the safety constraints on bimanual actions to avoid\ndangerous robot behaviors with improved success rate. Specifically, we design\ndiverse cost functions for safety constraints in different dual-arm cooperation\npatterns including avoidance of tearing objects and collision between arms and\nobjects, which optimizes the manipulator trajectories with guided sampling of\ndiffusion denoising process. Moreover, we employ a vision-language model (VLM)\nto schedule the cost functions by specifying keypoints and corresponding\npairwise relationship, so that the optimal safety constraint is dynamically\ngenerated in the entire bimanual manipulation process. SafeBimanual\ndemonstrates superiority on 8 simulated tasks in RoboTwin with a 13.7% increase\nin success rate and a 18.8% reduction in unsafe interactions over\nstate-of-the-art diffusion-based methods. Extensive experiments on 4 real-world\ntasks further verify its practical value by improving the success rate by\n32.5%.",
+  "published_date": "2025-08-25",
+  "arxiv_id": "http://arxiv.org/abs/2508.18268v1",
+  "pdf_filename": "SafeBimanual_Diffusion-based_Trajectory_Optimizati.pdf"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "FlowVLA: Thinking in Motion with a Visual Chain of Thought",
+  "authors": [
+    "Zhide Zhong",
+    "Haodong Yan",
+    "Junfeng Li",
+    "Xiangchen Liu",
+    "Xin Gong",
+    "Wenxuan Song",
+    "Jiayi Chen",
+    "Haoang Li"
+  ],
+  "summary": "Many Vision-Language-Action (VLA) models rely on an internal world model\ntrained via next-frame prediction. This approach, however, struggles with\nphysical reasoning as it entangles static appearance with dynamic motion, often\nresulting in implausible visual forecasts and inefficient policy learning. To\naddress these limitations, we introduce the Visual Chain of Thought (Visual\nCoT): a pre-training framework that encourages a model to reason about how a\nscene evolves before predicting what it will look like. We instantiate this\nprinciple in FlowVLA, which predicts a future frame ($v_{t+1}$) only after\ngenerating an intermediate optical flow representation ($f_t$) that encodes\nmotion dynamics. This ``$v_t \\rightarrow f_t \\rightarrow v_{t+1}$'' reasoning\nprocess is implemented within a single autoregressive Transformer, guiding the\nmodel to learn disentangled dynamics. As a result, FlowVLA produces coherent\nvisual predictions and facilitates more efficient policy learning. Experiments\non challenging robotics manipulation benchmarks demonstrate state-of-the-art\nperformance with substantially improved sample efficiency, pointing toward a\nmore principled foundation for world modeling. Project page:\nhttps://irpn-lab.github.io/FlowVLA/",
+  "published_date": "2025-08-25",
+  "arxiv_id": "http://arxiv.org/abs/2508.18269v1",
+  "pdf_filename": "FlowVLA_Thinking_in_Motion_with_a_Visual_Chain_of_.pdf"
+}

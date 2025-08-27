@@ -1,0 +1,16 @@
+{
+  "title": "ObjFiller-3D: Consistent Multi-view 3D Inpainting via Video Diffusion Models",
+  "authors": [
+    "Haitang Feng",
+    "Jie Liu",
+    "Jie Tang",
+    "Gangshan Wu",
+    "Beiqi Chen",
+    "Jianhuang Lai",
+    "Guangcong Wang"
+  ],
+  "summary": "3D inpainting often relies on multi-view 2D image inpainting, where the\ninherent inconsistencies across different inpainted views can result in blurred\ntextures, spatial discontinuities, and distracting visual artifacts. These\ninconsistencies pose significant challenges when striving for accurate and\nrealistic 3D object completion, particularly in applications that demand high\nfidelity and structural coherence. To overcome these limitations, we propose\nObjFiller-3D, a novel method designed for the completion and editing of\nhigh-quality and consistent 3D objects. Instead of employing a conventional 2D\nimage inpainting model, our approach leverages a curated selection of\nstate-of-the-art video editing model to fill in the masked regions of 3D\nobjects. We analyze the representation gap between 3D and videos, and propose\nan adaptation of a video inpainting model for 3D scene inpainting. In addition,\nwe introduce a reference-based 3D inpainting method to further enhance the\nquality of reconstruction. Experiments across diverse datasets show that\ncompared to previous methods, ObjFiller-3D produces more faithful and\nfine-grained reconstructions (PSNR of 26.6 vs. NeRFiller (15.9) and LPIPS of\n0.19 vs. Instant3dit (0.25)). Moreover, it demonstrates strong potential for\npractical deployment in real-world 3D editing applications. Project page:\nhttps://objfiller3d.github.io/ Code:\nhttps://github.com/objfiller3d/ObjFiller-3D .",
+  "published_date": "2025-08-25",
+  "arxiv_id": "http://arxiv.org/abs/2508.18271v1",
+  "pdf_filename": "ObjFiller-3D_Consistent_Multi-view_3D_Inpainting_v.pdf"
+}
