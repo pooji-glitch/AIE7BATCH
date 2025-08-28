@@ -29,6 +29,7 @@ const CreditAnalysis = () => {
   const [currentMessage, setCurrentMessage] = useState('');
   const [whatIfScenario, setWhatIfScenario] = useState('');
   const [whatIfResult, setWhatIfResult] = useState(null);
+  const [isRunningScenario, setIsRunningScenario] = useState(false);
   
   const {
     register,
@@ -50,43 +51,78 @@ const CreditAnalysis = () => {
   const onSubmit = async (data) => {
     setIsAnalyzing(true);
     
-    // Simulate API call
+    // Get the credit score from the form data
+    const enteredCreditScore = parseInt(data.currentCreditScore) || 700;
+    
+    // Calculate a realistic range based on the entered score
+    const scoreRange = `${Math.max(300, enteredCreditScore - 50)}-${Math.min(850, enteredCreditScore + 50)}`;
+    
+    // Educational analysis - using the entered credit score
     setTimeout(() => {
-      const mockResult = {
-        creditScore: Math.floor(Math.random() * 200) + 500,
-        riskLevel: ['Low', 'Medium', 'High'][Math.floor(Math.random() * 3)],
-        confidence: Math.floor(Math.random() * 30) + 70,
-        approvalRecommendation: Math.random() > 0.3 ? 'Approve' : 'Review',
+      const educationalResult = {
+        analysisType: 'Educational Credit Analysis',
+        disclaimer: 'This is an educational tool. For your actual credit score, please check with official credit bureaus.',
+        creditScoreRange: `Based on your inputs, your score would likely be in the ${scoreRange} range`,
+        enteredCreditScore: enteredCreditScore, // Store the actual entered score
+        riskLevel: 'Educational Assessment',
+        confidence: 'Educational purposes only',
+        approvalRecommendation: 'Educational guidance only',
         factors: [
-          { factor: 'Payment History', impact: 'Positive', score: 85, explanation: 'You have a strong payment history with no late payments in the last 24 months. This is the most important factor in your credit score.' },
-          { factor: 'Credit Utilization', impact: 'Negative', score: 65, explanation: 'Your credit utilization is at 45%, which is slightly high. Keeping it below 30% would improve your score.' },
-          { factor: 'Length of Credit History', impact: 'Positive', score: 78, explanation: 'You have a good length of credit history at 5 years. Longer history generally means better scores.' },
-          { factor: 'Credit Mix', impact: 'Neutral', score: 72, explanation: 'You have a good mix of credit types including revolving and installment accounts.' },
-          { factor: 'New Credit', impact: 'Negative', score: 60, explanation: 'Recent credit inquiries may temporarily impact your score. This effect typically lasts 6-12 months.' },
+          { 
+            factor: 'Payment History', 
+            impact: 'Educational', 
+            score: 'N/A', 
+            explanation: 'Payment history accounts for 35% of your FICO score. Always pay bills on time to maintain good credit.' 
+          },
+          { 
+            factor: 'Credit Utilization', 
+            impact: 'Educational', 
+            score: 'N/A', 
+            explanation: 'Credit utilization should stay below 30%. This means if you have $10,000 in credit, keep balances under $3,000.' 
+          },
+          { 
+            factor: 'Length of Credit History', 
+            impact: 'Educational', 
+            score: 'N/A', 
+            explanation: 'Longer credit history generally means better scores. Keep old accounts open when possible.' 
+          },
+          { 
+            factor: 'Credit Mix', 
+            impact: 'Educational', 
+            score: 'N/A', 
+            explanation: 'Having different types of credit (credit cards, loans, mortgages) can improve your score.' 
+          },
+          { 
+            factor: 'New Credit', 
+            impact: 'Educational', 
+            score: 'N/A', 
+            explanation: 'Opening too many new accounts quickly can temporarily lower your score. Space out applications.' 
+          },
         ],
         aiInsights: [
-          'Your payment history is excellent - this is the biggest positive factor in your score',
-          'Consider reducing your credit card balances to get utilization below 30%',
-          'Avoid opening new credit accounts for the next 6 months to let recent inquiries age',
-          'Your credit mix is diverse, which lenders view positively',
+          'This is an educational analysis to help you understand credit factors',
+          'Your actual credit score may vary based on many factors',
+          'Always check with official credit bureaus for your real score',
+          'Focus on building good credit habits rather than obsessing over numbers',
         ],
         recommendations: [
-          'Maintain your excellent payment behavior - this is your strongest factor',
-          'Pay down credit card balances to reduce utilization from 45% to under 30%',
-          'Avoid applying for new credit for 6 months to let recent inquiries age',
-          'Consider setting up automatic payments to ensure you never miss a payment',
-          'Monitor your credit report regularly for any errors or suspicious activity',
+          'Pay all bills on time - this is the most important factor',
+          'Keep credit card balances below 30% of your limit',
+          'Don\'t close old credit accounts unless necessary',
+          'Only apply for new credit when you really need it',
+          'Monitor your credit report regularly for errors',
         ],
         educationalTips: [
           'Credit scores range from 300-850, with 670+ considered good',
           'Payment history accounts for 35% of your FICO score',
           'Credit utilization should ideally stay below 30%',
           'Hard inquiries stay on your report for 2 years but only affect scores for 1 year',
-          'Length of credit history accounts for 15% of your score'
+          'Length of credit history accounts for 15% of your score',
+          'You can get free credit reports from annualcreditreport.com'
         ]
       };
       
-      setAnalysisResult(mockResult);
+      setAnalysisResult(educationalResult);
       setIsAnalyzing(false);
       toast.success('Credit analysis completed! Ask me anything about your score!');
     }, 3000);
@@ -101,13 +137,16 @@ const CreditAnalysis = () => {
 
     // Simulate AI response
     setTimeout(() => {
+      // Get the user's credit score for personalized responses
+      const userScore = analysisResult?.enteredCreditScore || 700;
+      
       const aiResponses = {
-        "Why did my credit score drop?": "Your credit score likely dropped due to increased credit utilization (currently at 45%) and recent credit inquiries. The utilization increase has the biggest impact. To improve: pay down balances to get utilization below 30%.",
-        "What can I do to increase my score?": "To increase your score: 1) Pay down credit card balances to reduce utilization, 2) Continue making all payments on time, 3) Avoid opening new accounts for 6 months, 4) Consider becoming an authorized user on someone's account with good credit.",
-        "How does credit utilization affect my score?": "Credit utilization (how much of your available credit you're using) accounts for 30% of your FICO score. Your current 45% utilization is higher than the recommended 30% or less. Lower utilization = higher score.",
-        "What's the impact of opening a new credit card?": "Opening a new credit card can temporarily lower your score by 5-10 points due to the hard inquiry and reduced average account age. However, it can help long-term by increasing your total credit limit and improving your credit mix.",
-        "How long do late payments stay on my report?": "Late payments can stay on your credit report for up to 7 years, but their impact on your score decreases over time. Recent late payments hurt more than older ones. Always try to pay on time!",
-        "What's a good credit utilization ratio?": "A good credit utilization ratio is 30% or less. Your current 45% is higher than ideal. The lower your utilization, the better for your score. Aim to keep it under 10% for the best results."
+        "Why did my credit score drop?": `With your credit score of ${userScore}, the most likely reasons for a drop are: 1) Increased credit utilization above 30%, 2) Recent credit inquiries, 3) Late payments, or 4) Reduced credit limits. To improve: focus on paying down balances and making all payments on time.`,
+        "What can I do to increase my score?": `To improve your ${userScore} score: 1) Pay down credit card balances to reduce utilization below 30%, 2) Continue making all payments on time, 3) Avoid opening new accounts for 6 months, 4) Consider becoming an authorized user on someone's account with good credit, 5) Check for errors on your credit report.`,
+        "How does credit utilization affect my score?": `Credit utilization accounts for 30% of your FICO score. With your current score of ${userScore}, keeping utilization below 30% is crucial. If your utilization is high, paying down balances could significantly improve your score.`,
+        "What's the impact of opening a new credit card?": `For someone with a ${userScore} score, opening a new credit card could temporarily lower your score by 5-10 points due to the hard inquiry. However, if managed well, it could help long-term by increasing your total credit limit and improving your credit mix.`,
+        "How long do late payments stay on my report?": `Late payments can stay on your credit report for up to 7 years, but their impact decreases over time. With your ${userScore} score, avoiding late payments is especially important as they can cause significant drops. Always pay on time!`,
+        "What's a good credit utilization ratio?": `A good credit utilization ratio is 30% or less. With your ${userScore} score, keeping utilization low is key. Aim for under 10% for optimal results. Lower utilization = higher score potential.`
       };
 
       const aiResponse = aiResponses[message] || "I can help explain your credit score factors, provide improvement tips, or answer questions about credit utilization, payment history, and more. What would you like to know?";
@@ -121,46 +160,82 @@ const CreditAnalysis = () => {
     if (!whatIfScenario.trim()) return;
 
     setWhatIfResult(null);
+    setIsRunningScenario(true);
+    
+    // Get base score from the entered credit score
+    let baseScore = 700; // default
+    if (analysisResult && analysisResult.enteredCreditScore) {
+      // Use the actual credit score entered by the user
+      baseScore = analysisResult.enteredCreditScore;
+    } else if (analysisResult && analysisResult.creditScoreRange) {
+      // Fallback to extracting from range if entered score not available
+      const rangeMatch = analysisResult.creditScoreRange.match(/(\d+)-(\d+)/);
+      if (rangeMatch) {
+        const min = parseInt(rangeMatch[1]);
+        const max = parseInt(rangeMatch[2]);
+        baseScore = Math.floor((min + max) / 2);
+      }
+    } else {
+      // If no analysis has been run, use a default score for educational purposes
+      baseScore = 720;
+    }
     
     // Simulate what-if analysis
     setTimeout(() => {
       const scenarios = {
         "pay off credit card": {
           title: "Paying Off Credit Card Balance",
-          currentScore: analysisResult.creditScore,
-          newScore: analysisResult.creditScore + 25,
+          currentScore: baseScore,
+          newScore: baseScore + 25,
           impact: "+25 points",
           explanation: "Paying off your credit card would reduce your utilization from 45% to 15%, significantly improving your score.",
           timeline: "Impact would be seen within 1-2 billing cycles"
         },
         "open new credit card": {
           title: "Opening New Credit Card",
-          currentScore: analysisResult.creditScore,
-          newScore: analysisResult.creditScore - 8,
+          currentScore: baseScore,
+          newScore: baseScore - 8,
           impact: "-8 points",
           explanation: "Opening a new card would add a hard inquiry and reduce average account age, but increase total credit limit.",
           timeline: "Temporary dip, but could improve score long-term"
         },
         "miss payment": {
           title: "Missing a Payment",
-          currentScore: analysisResult.creditScore,
-          newScore: analysisResult.creditScore - 60,
+          currentScore: baseScore,
+          newScore: baseScore - 60,
           impact: "-60 points",
           explanation: "Missing a payment would significantly damage your excellent payment history, the most important credit factor.",
           timeline: "Impact would be immediate and long-lasting"
+        },
+        "reduce credit utilization": {
+          title: "Reducing Credit Utilization",
+          currentScore: baseScore,
+          newScore: baseScore + 15,
+          impact: "+15 points",
+          explanation: "Reducing your credit utilization from 45% to 30% would improve your score by showing better credit management.",
+          timeline: "Impact would be seen within 1-2 billing cycles"
+        },
+        "pay off student loan": {
+          title: "Paying Off Student Loan",
+          currentScore: baseScore,
+          newScore: baseScore + 10,
+          impact: "+10 points",
+          explanation: "Paying off a student loan would improve your debt-to-income ratio and show responsible debt management.",
+          timeline: "Impact would be seen within 1-2 months"
         }
       };
 
       const scenario = scenarios[whatIfScenario.toLowerCase()] || {
         title: "Custom Scenario",
-        currentScore: analysisResult.creditScore,
-        newScore: analysisResult.creditScore + Math.floor(Math.random() * 20) - 10,
+        currentScore: baseScore,
+        newScore: baseScore + Math.floor(Math.random() * 20) - 10,
         impact: "Variable impact",
         explanation: "This scenario would have a moderate impact on your credit score.",
         timeline: "Impact timeline varies"
       };
 
       setWhatIfResult(scenario);
+      setIsRunningScenario(false);
     }, 2000);
   };
 
@@ -184,9 +259,9 @@ const CreditAnalysis = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">AI Credit Assistant</h1>
+          <h1 className="text-3xl font-bold text-gray-900">AI Credit Education Assistant</h1>
           <p className="mt-2 text-gray-600">
-            Get personalized credit insights and answers to your questions
+            Learn about credit factors and get educational insights - not actual credit scores
           </p>
         </div>
         <div className="mt-4 sm:mt-0 flex space-x-3">
@@ -210,7 +285,7 @@ const CreditAnalysis = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Analysis Form */}
         <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">Credit Profile Analysis</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">Educational Credit Profile Analysis</h2>
           
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Personal Information */}
@@ -364,24 +439,37 @@ const CreditAnalysis = () => {
             <>
               {/* Summary Card */}
               <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-                <h2 className="text-xl font-semibold text-gray-900 mb-6">Your Credit Analysis</h2>
+                <h2 className="text-xl font-semibold text-gray-900 mb-6">{analysisResult.analysisType}</h2>
+                
+                {/* Educational Disclaimer */}
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                  <div className="flex items-start">
+                    <AlertTriangle className="h-5 w-5 text-yellow-600 mt-0.5 mr-2 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-sm font-medium text-yellow-800">Educational Tool Disclaimer</h4>
+                      <p className="text-sm text-yellow-700 mt-1">{analysisResult.disclaimer}</p>
+                    </div>
+                  </div>
+                </div>
                 
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="text-center p-4 bg-gray-50 rounded-lg">
-                    <p className="text-sm text-gray-600">Credit Score</p>
-                    <p className={`text-2xl font-bold ${getScoreColor(analysisResult.creditScore)}`}>
-                      {analysisResult.creditScore}
+                    <p className="text-sm text-gray-600">Your Entered Score</p>
+                    <p className="text-xl font-bold text-blue-600">
+                      {analysisResult.enteredCreditScore}
                     </p>
                     <p className="text-xs text-gray-500 mt-1">
-                      {analysisResult.creditScore >= 750 ? 'Excellent' : 
-                       analysisResult.creditScore >= 650 ? 'Good' : 'Needs Improvement'}
+                      Based on your input
                     </p>
                   </div>
                   <div className="text-center p-4 bg-gray-50 rounded-lg">
-                    <p className="text-sm text-gray-600">Risk Level</p>
-                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getRiskColor(analysisResult.riskLevel)}`}>
-                      {analysisResult.riskLevel}
-                    </span>
+                    <p className="text-sm text-gray-600">Estimated Range</p>
+                    <p className="text-lg font-bold text-green-600">
+                      {analysisResult.creditScoreRange}
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      Educational estimate
+                    </p>
                   </div>
                 </div>
 
@@ -407,11 +495,7 @@ const CreditAnalysis = () => {
                     <div key={index} className="border border-gray-200 rounded-lg p-4">
                       <div className="flex items-center justify-between mb-2">
                         <h4 className="font-medium text-gray-900">{factor.factor}</h4>
-                        <span className={`inline-block px-2 py-1 rounded text-xs font-medium ${
-                          factor.impact === 'Positive' ? 'text-green-600 bg-green-100' :
-                          factor.impact === 'Negative' ? 'text-red-600 bg-red-100' :
-                          'text-gray-600 bg-gray-100'
-                        }`}>
+                        <span className="inline-block px-2 py-1 rounded text-xs font-medium text-blue-600 bg-blue-100">
                           {factor.impact}
                         </span>
                       </div>
@@ -419,15 +503,11 @@ const CreditAnalysis = () => {
                       <div className="flex items-center space-x-2">
                         <div className="flex-1 bg-gray-200 rounded-full h-2">
                           <div 
-                            className={`h-2 rounded-full ${
-                              factor.impact === 'Positive' ? 'bg-green-500' :
-                              factor.impact === 'Negative' ? 'bg-red-500' :
-                              'bg-gray-500'
-                            }`}
-                            style={{ width: `${factor.score}%` }}
+                            className="h-2 rounded-full bg-blue-500"
+                            style={{ width: '100%' }}
                           ></div>
                         </div>
-                        <span className="text-xs text-gray-500">{factor.score}/100</span>
+                        <span className="text-xs text-gray-500">Educational</span>
                       </div>
                     </div>
                   ))}
@@ -498,7 +578,20 @@ const CreditAnalysis = () => {
               {showWhatIf && (
                 <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">What-If Scenarios</h3>
-                  <p className="text-sm text-gray-600 mb-4">See how different actions would affect your credit score</p>
+                  <p className="text-sm text-gray-600 mb-4">See how different actions would affect your credit score (educational estimates only)</p>
+                  
+                  {/* Educational Disclaimer */}
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+                    <div className="flex items-start">
+                      <AlertTriangle className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <div>
+                        <p className="text-sm text-blue-800">
+                          <strong>Educational Tool:</strong> These scenarios show estimated impacts for learning purposes. 
+                          Actual results may vary based on your specific credit profile.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   
                   <div className="space-y-4">
                     <div>
@@ -514,16 +607,27 @@ const CreditAnalysis = () => {
                         <option value="pay off credit card">Pay off credit card balance</option>
                         <option value="open new credit card">Open new credit card</option>
                         <option value="miss payment">Miss a payment</option>
+                        <option value="reduce credit utilization">Reduce credit utilization</option>
+                        <option value="pay off student loan">Pay off student loan</option>
                       </select>
                     </div>
                     
                     <button
                       onClick={runWhatIfScenario}
-                      disabled={!whatIfScenario}
+                      disabled={!whatIfScenario || isRunningScenario}
                       className="w-full flex items-center justify-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 disabled:opacity-50 transition-colors"
                     >
-                      <Play className="h-4 w-4" />
-                      <span>Run Scenario</span>
+                      {isRunningScenario ? (
+                        <>
+                          <RotateCcw className="h-4 w-4 animate-spin" />
+                          <span>Running Scenario...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Play className="h-4 w-4" />
+                          <span>Run Scenario</span>
+                        </>
+                      )}
                     </button>
 
                     {whatIfResult && (
