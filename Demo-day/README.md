@@ -218,7 +218,7 @@ The infrastructure is production-ready with:
 
 ## 📞 Contact & Support
 
-- **GitHub**: [Your Repository]
+
 - **Demo URL**: http://localhost:3000
 - **Documentation**: See INFRASTRUCTURE.md for detailed setup
 
